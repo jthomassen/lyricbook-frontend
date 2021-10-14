@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+# Lyricbook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Lyricbook is a web application to help songwriters to write lyric drafts or store final copies of their lyrics. Songwriters are provided a digital notepad to compose/format their lyrics and a journal-view to review a collection of their songs. 
 
-## Available Scripts
+## User Stories
 
-In the project directory, you can run:
+* As a user, I want to be able to sign up for an account, and login/logout
+* As a user, I want to create, edit, and delete a new lyric draft
+* As a user, I want to view a collection of all of my lyrics
+* As a user, I want to delete my account
 
-### `npm start`
+STRETCH GOALS:
+* As a user, I want to customize my artist name, profile picture, and bio 
+* As a user, I want to view songs from other user's profiles
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Models and Relationships
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![user-lyrics-relations](https://user-images.githubusercontent.com/85265620/137038250-6cd5995f-3a06-4595-bc71-eb48a87d4f00.png)
 
-### `npm test`
+### User
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A `User` has many `Lyrics` 
 
-### `npm run build`
+* id
+* username
+* password_digest
+* bio
+* profile_img
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Lyrics
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A `Lyric` belongs to a `User`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* id
+* title
+* artist_name
+* content
+* copyright_name
+* copyright_year
+* user_id
 
-### `npm run eject`
+## API
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This API will feature 5 RESTful routes: show, index, create, update, and destroy.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Lyrics
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```json
+{ 
+  id: 1,
+  title: "Baby You're a Rich Man",
+  artist_name: "The Beatles",
+  content: " ... You keep all your money in a big brown bag inside a zoo What a thing to do Baby you're a rich man ... ",
+  copyright_name: "Lennon/McCartney",
+  copyright_year: 1967,
+  user_id: 1
+}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### GET /api/lyrics
+This will show the collection of lyrics
 
-## Learn More
+### GET /api/lyrics/:id
+This will allow a user to select a lyric
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### POST /api/lyrics
+This will allow a user to post a new lyric
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### PATCH /api/lyrics/:id
+This will allow a user to edit an existing lyric
 
-### Code Splitting
+### DELETE /api/lyrics/:id
+This will allow a user to delete an existing lyric
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Users
 
-### Analyzing the Bundle Size
+```json
+{
+  id: 1
+  username: "thebeatles"
+  bio: " ... Four lads from Liverpool started in ... "
+  profile_img: "beatles.png"
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### DELETE /api/users/:id
+This will allow a user to delete their account
 
-### Making a Progressive Web App
+### STETCH GOALS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### GET /api/users
+This will allow a different user to browse search results of all other users
 
-### Advanced Configuration
+### GET /api/users/:id
+This will allow a user to select another user
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### GET /api/users/:id/lyrics
+This will allow a user to view another user's collection of lyrics
 
-### Deployment
+## Wireframe
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Dashboard
+![lyricbook-dashboard](https://user-images.githubusercontent.com/85265620/137041071-7ddb9f4d-ee8d-4b0b-b184-06526f02402e.png)
 
-### `npm run build` fails to minify
+### Song View
+![lyricbook-song-view](https://user-images.githubusercontent.com/85265620/137170974-af73ed2c-fa3f-4fee-8216-5122b1c8857e.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Song Editor
+![lyricbook-song-editor](https://user-images.githubusercontent.com/85265620/137041104-9322de45-68bd-4eaa-b24a-deac28189b26.png)
+
+### Nav Bar
+![lyricbook-navbar](https://user-images.githubusercontent.com/85265620/137041422-3962fec3-4b25-491b-b21f-c858ebc8c968.png)
+
+
+
+
+
+
+
