@@ -4,17 +4,27 @@ import User from './components/User'
 
 function App() {
 
+  const production = "https://lyricbook-backend.herokuapp.com/"
+  const development = "http://localhost:3000/"
+  const url = (process.env.NODE_ENV ? production : development)
+
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3000/users")
+    fetch(`${url}/users`)
+    .then((res) => res.json())
+    .then(data => console.log(data))
+  }, [])
+
+  useEffect(() => {
+    fetch(`${url}/lyrics`)
     .then((res) => res.json())
     .then(data => console.log(data))
   }, [])
 
   return (
     <div>
-      Hello
+      <User/>
     </div>
   );
 }

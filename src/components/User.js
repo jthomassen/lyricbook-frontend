@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import React, { useEffect, useState } from 'react';
 
-function User({user}) {
+function User() {
 
     return (
         <h1>Hello</h1>
