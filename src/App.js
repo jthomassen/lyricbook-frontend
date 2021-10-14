@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import User from './components/User'
 
 function App() {
 
-  // const [user, setUser] = useState(null)
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
     fetch("http://localhost:3000/users")
@@ -13,7 +14,7 @@ function App() {
 
   return (
     <div>
-      Hello 
+      Hello
     </div>
   );
 }
