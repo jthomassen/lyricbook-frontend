@@ -1,6 +1,16 @@
+// import './App.css';
 import React, { useEffect, useState } from 'react';
-import './App.css';
-import User from './components/User'
+import Home from './components/Home';
+import Dashboard from './components/Dashboard';
+import Profile from './components/Profile';
+import SigninHome from './components/SigninHome.js';
+import Login from './components/Login';
+import {
+  BrowserRouter as Router,
+  Switch, Route, NavLink, BrowserRouter
+
+} from 'react-router-dom' 
+
 
 function App() {
 
@@ -9,6 +19,7 @@ function App() {
   const url = (process.env.NODE_ENV ? production : development)
 
   const [users, setUsers] = useState([])
+  const [lyrics, setLyrics] = useState([])
 
   useEffect(() => {
     fetch(`${url}/users`)
@@ -19,13 +30,40 @@ function App() {
   useEffect(() => {
     fetch(`${url}/lyrics`)
     .then((res) => res.json())
-    .then(data => console.log(data))
+    .then(data => setLyrics(data))
   }, [])
 
   return (
-    <div>
-      <User/>
-    </div>
+    <Router>
+
+      <div className="app">
+
+        <Route exact path="/login">
+          <Login />
+        </Route>
+
+        <Switch>
+
+          <Route exact path="/">
+            <SigninHome />
+          </Route>
+
+          <Route exact path="/home">
+            <Home />
+          </Route>
+
+          <Route exact path="/dashboard">
+            <Dashboard lyrics={lyrics}/>
+          </Route>
+
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
+            
+
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
