@@ -5,7 +5,7 @@ import LyricCard from './LyricCard';
 function LyricsContainer({ lyrics }) {
 
     return (
-        <div>
+        <div className="lyrics-container">
             {lyrics.map((lyric) => (
                 <LyricCard
                     key={lyric.id}

@@ -9,7 +9,9 @@ function Dashboard({ lyrics }) {
         <div>
             <Header />
             <NavBar />
-            <LyricsContainer lyrics={lyrics}/>
+            <LyricsContainer 
+                lyrics={lyrics}
+            />
         </div>
     )
 }

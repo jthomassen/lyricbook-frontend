@@ -1,16 +1,17 @@
 // import './App.css';
 import React, { useEffect, useState } from 'react';
+import SigninHome from './components/SigninHome.js';
+import Login from './components/Login';
+import Signup from './components/Signup.js';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
-import SigninHome from './components/SigninHome.js';
-import Login from './components/Login';
+import LyricView from './components/LyricView';
 import {
   BrowserRouter as Router,
   Switch, Route
 
-} from 'react-router-dom' 
-
+} from 'react-router-dom'
 
 function App() {
 
@@ -23,14 +24,14 @@ function App() {
 
   useEffect(() => {
     fetch(`${url}/users`)
-    .then((res) => res.json())
-    .then(data => console.log(data))
+      .then((res) => res.json())
+      .then(data => console.log(data))
   }, [])
 
   useEffect(() => {
     fetch(`${url}/lyrics`)
-    .then((res) => res.json())
-    .then(data => setLyrics(data))
+      .then((res) => res.json())
+      .then(data => setLyrics(data))
   }, [])
 
   return (
@@ -38,14 +39,25 @@ function App() {
 
       <div className="app">
 
-        <Route exact path="/login">
-          <Login />
-        </Route>
+
+
+
+
+
 
         <Switch>
 
+
           <Route exact path="/">
             <SigninHome />
+          </Route>
+
+          <Route exact path="/login">
+            <Login />
+          </Route>
+
+          <Route exact path="/signup">
+            <Signup />
           </Route>
 
           <Route exact path="/home">
@@ -53,13 +65,21 @@ function App() {
           </Route>
 
           <Route exact path="/dashboard">
-            <Dashboard lyrics={lyrics}/>
+            <Dashboard
+              lyrics={lyrics}
+            />
           </Route>
 
           <Route exact path="/profile">
             <Profile />
           </Route>
-            
+
+          <Route exact path="/lyric-view">
+            <LyricView
+              lyrics={lyrics}
+            />
+          </Route>
+
 
         </Switch>
       </div>

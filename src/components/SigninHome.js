@@ -1,17 +1,22 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function SigninHome() {
 
     return (
         <div>
-            <NavLink 
-                    activeClassName="active-nav-link" 
-                    className="nav-link" 
-                    style={{ textDecoration: 'none' }}
-                    exact to="/home">
-                    Login (fake)
-            </NavLink>
+            <Link 
+                className="signin-home-link" 
+                exact to="/login"
+            >
+                Login
+            </Link>
+            <Link 
+                className="signin-home-link" 
+                exact to="/signup"
+            >
+                Signup
+            </Link>
         </div>
     )
 }
