@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/lyricbook-frontend/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/lyricbook-frontend/static/js/main.50d99ee5.chunk.js",
-    "main.js.map": "/lyricbook-frontend/static/js/main.50d99ee5.chunk.js.map",
+    "main.css": "/lyricbook-frontend/static/css/main.085b3199.chunk.css",
+    "main.js": "/lyricbook-frontend/static/js/main.c337a224.chunk.js",
+    "main.js.map": "/lyricbook-frontend/static/js/main.c337a224.chunk.js.map",
     "runtime-main.js": "/lyricbook-frontend/static/js/runtime-main.e5268e44.js",
     "runtime-main.js.map": "/lyricbook-frontend/static/js/runtime-main.e5268e44.js.map",
-    "static/js/2.29ea67a2.chunk.js": "/lyricbook-frontend/static/js/2.29ea67a2.chunk.js",
-    "static/js/2.29ea67a2.chunk.js.map": "/lyricbook-frontend/static/js/2.29ea67a2.chunk.js.map",
+    "static/js/2.83431919.chunk.js": "/lyricbook-frontend/static/js/2.83431919.chunk.js",
+    "static/js/2.83431919.chunk.js.map": "/lyricbook-frontend/static/js/2.83431919.chunk.js.map",
     "index.html": "/lyricbook-frontend/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/lyricbook-frontend/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.29ea67a2.chunk.js.LICENSE.txt": "/lyricbook-frontend/static/js/2.29ea67a2.chunk.js.LICENSE.txt"
+    "static/css/main.085b3199.chunk.css.map": "/lyricbook-frontend/static/css/main.085b3199.chunk.css.map",
+    "static/js/2.83431919.chunk.js.LICENSE.txt": "/lyricbook-frontend/static/js/2.83431919.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e5268e44.js",
-    "static/js/2.29ea67a2.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.50d99ee5.chunk.js"
+    "static/js/2.83431919.chunk.js",
+    "static/css/main.085b3199.chunk.css",
+    "static/js/main.c337a224.chunk.js"
   ]
 }
