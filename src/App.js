@@ -18,7 +18,7 @@ function App() {
   const development = "http://localhost:3000/"
   const url = (process.env.NODE_ENV ? production : development)
 
-  const [users, setUsers] = useState([])
+  // const [users, setUsers] = useState([])
   const [lyrics, setLyrics] = useState([])
 
   useEffect(() => {
