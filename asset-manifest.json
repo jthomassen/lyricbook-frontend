@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/lyricbook-frontend/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/lyricbook-frontend/static/js/main.70762b2f.chunk.js",
-    "main.js.map": "/lyricbook-frontend/static/js/main.70762b2f.chunk.js.map",
+    "main.js": "/lyricbook-frontend/static/js/main.fdd10dc6.chunk.js",
+    "main.js.map": "/lyricbook-frontend/static/js/main.fdd10dc6.chunk.js.map",
     "runtime-main.js": "/lyricbook-frontend/static/js/runtime-main.e5268e44.js",
     "runtime-main.js.map": "/lyricbook-frontend/static/js/runtime-main.e5268e44.js.map",
     "static/js/2.bb61fb67.chunk.js": "/lyricbook-frontend/static/js/2.bb61fb67.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.e5268e44.js",
     "static/js/2.bb61fb67.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.70762b2f.chunk.js"
+    "static/js/main.fdd10dc6.chunk.js"
   ]
 }
