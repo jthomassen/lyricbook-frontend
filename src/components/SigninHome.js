@@ -9,8 +9,8 @@ function SigninHome() {
                     activeClassName="active-nav-link" 
                     className="nav-link" 
                     style={{ textDecoration: 'none' }}
-                    exact to="/dashboard">
-                    Get Started
+                    exact to="/home">
+                    Login (fake)
             </NavLink>
         </div>
     )
