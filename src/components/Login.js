@@ -3,6 +3,10 @@ import { useHistory } from "react-router-dom";
 
 function Login({ handleLogin }) {
 
+    const production = "https://lyricbook-backend.herokuapp.com/"
+    const development = "http://localhost:3000/"
+    const url = (process.env.NODE_ENV ? production : development)
+
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -12,7 +16,7 @@ function Login({ handleLogin }) {
 
     function onLogin(username, password) {
         // fetch(`${url}/api/v1/login`, {
-        fetch(`http://localhost:3000/login`, {
+        fetch(`${url}/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -34,6 +38,9 @@ function Login({ handleLogin }) {
             });
           } else {
             console.log("wrong username/password")
+            response.json().then((data) => {
+                setError(data.message)
+            })
           }
         })
       }
@@ -130,6 +137,7 @@ function Login({ handleLogin }) {
                 <button type="submit">Login</button>
 
             </form>
+            <h4 className="login-error">{error}</h4>
 
         </div>
     )

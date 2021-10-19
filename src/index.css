@@ -12,6 +12,14 @@ code {
     monospace;
 }
 
+.signup-error {
+  color: red;
+}
+
+.login-error {
+  color: red;
+}
+
 .lyrics-container {
   display: flex;
   justify-content: left;

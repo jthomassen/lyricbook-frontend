@@ -15,9 +15,9 @@ import {
 
 function App() {
 
-  // const production = "https://lyricbook-backend.herokuapp.com/"
-  // const development = "http://localhost:3000/"
-  // const url = (process.env.NODE_ENV === "production" ? production : development)
+  const production = "https://lyricbook-backend.herokuapp.com/"
+  const development = "http://localhost:3000/"
+  const url = (process.env.NODE_ENV ? production : development)
 
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     console.log("token: " + token)
-    fetch(`http://localhost:3000/profile`, {
+    fetch(`${url}/profile`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
