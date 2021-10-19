@@ -15,36 +15,52 @@ import {
 
 function App() {
 
-  const production = "https://lyricbook-backend.herokuapp.com/"
-  const development = "http://localhost:3000/"
-  const url = (process.env.NODE_ENV ? production : development)
+  // const production = "https://lyricbook-backend.herokuapp.com/"
+  // const development = "http://localhost:3000/"
+  // const url = (process.env.NODE_ENV === "production" ? production : development)
 
-  // const [users, setUsers] = useState([])
-  const [lyrics, setLyrics] = useState([])
-
-  useEffect(() => {
-    fetch(`${url}/users`)
-      .then((res) => res.json())
-      .then(data => console.log(data))
-  }, [])
+  const [user, setUser] = useState({})
+  const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
-    fetch(`${url}/lyrics`)
-      .then((res) => res.json())
-      .then(data => setLyrics(data))
-  }, [])
+    const token = localStorage.getItem("jwt");
+    console.log("token: " + token)
+    fetch(`http://localhost:3000/profile`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((response) => {
+      if (response.ok) {
+        response.json().then((data) => {
+          setLoggedIn(true)
+          setUser(data.user)
+        });
+      } else {
+        console.log("please log in")
+      }
+    });
+  }, []);
+
+  function handleLogin(currentUser) {
+    setUser(currentUser);
+    setLoggedIn(true)
+  }
+
+  function handleLogout() {
+    localStorage.clear()
+    setUser(null);
+    setLoggedIn(false)
+  }
 
   return (
+
+
     <Router basename={process.env.PUBLIC_URL}>
 
       <div className="app">
 
-
-
-
-
-
-
+        
         <Switch>
 
 
@@ -53,37 +69,47 @@ function App() {
           </Route>
 
           <Route exact path="/login">
-            <Login />
+            <Login
+              handleLogin={handleLogin}
+            />
           </Route>
 
           <Route exact path="/signup">
-            <Signup />
+            <Signup
+              handleLogin={handleLogin}
+            />
           </Route>
 
           <Route exact path="/home">
-            <Home />
+            <Home onLogout={handleLogout} />
           </Route>
 
           <Route exact path="/dashboard">
             <Dashboard
-              lyrics={lyrics}
+              user={user}
+              onLogout={handleLogout}
             />
           </Route>
 
           <Route exact path="/profile">
-            <Profile />
+            <Profile
+              user={user}
+              onLogout={handleLogout}
+            />
           </Route>
 
           <Route exact path="/lyric-view">
             <LyricView
-              lyrics={lyrics}
+              user={user}
             />
           </Route>
 
 
         </Switch>
+
       </div>
     </Router>
+
   );
 }
 

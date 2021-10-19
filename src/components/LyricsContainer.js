@@ -2,16 +2,18 @@ import React from 'react';
 import LyricCard from './LyricCard';
 
 
-function LyricsContainer({ lyrics }) {
+function LyricsContainer({ user }) {
 
     return (
         <div className="lyrics-container">
-            {lyrics.map((lyric) => (
+            {user.lyrics.map((lyric) => (
                 <LyricCard
                     key={lyric.id}
                     lyric={lyric}
                 />
-            ))}
+            ))
+            
+            }
         </div>
     )
 }

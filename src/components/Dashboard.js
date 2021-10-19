@@ -3,14 +3,14 @@ import Header from './Header'
 import NavBar from './NavBar'
 import LyricsContainer from './LyricsContainer'
 
-function Dashboard({ lyrics }) {
+function Dashboard({ user }) {
 
     return (
         <div>
             <Header />
             <NavBar />
             <LyricsContainer 
-                lyrics={lyrics}
+                user={user}
             />
         </div>
     )

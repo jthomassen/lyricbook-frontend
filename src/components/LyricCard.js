@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 
-function Lyric( {lyric } ) {
+function Lyric( { lyric } ) {
 
     return (
         <div>

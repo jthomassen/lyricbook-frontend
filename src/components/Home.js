@@ -13,7 +13,6 @@ function Home() {
             <Link 
                 exact to="/dashboard"
                 className="home-dashboard-link" 
-                style={{ textDecoration: 'none' }}
             >
                 Get Started
             </Link>
