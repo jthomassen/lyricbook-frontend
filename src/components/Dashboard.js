@@ -3,7 +3,7 @@ import Header from './Header'
 import NavBar from './NavBar'
 import LyricsContainer from './LyricsContainer'
 
-function Dashboard({ user }) {
+function Dashboard({ user, handleLyricClick }) {
 
     return (
         <div>
@@ -11,6 +11,7 @@ function Dashboard({ user }) {
             <NavBar />
             <LyricsContainer 
                 user={user}
+                handleLyricClick={handleLyricClick}
             />
         </div>
     )

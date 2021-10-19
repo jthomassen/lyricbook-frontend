@@ -1,9 +1,9 @@
 import React from 'react'
 
-function LyricView( {lyrics} ) {
+function LyricView( { user } ) {
 
     return (
-        <h1>Lyric View</h1>
+        <div>Lyric view</div>
     )
 }
 

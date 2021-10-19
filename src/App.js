@@ -9,7 +9,7 @@ import Profile from './components/Profile';
 import LyricView from './components/LyricView';
 import {
   BrowserRouter as Router,
-  Switch, Route
+  Switch, Route, useHistory
 
 } from 'react-router-dom'
 
@@ -21,6 +21,9 @@ function App() {
 
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
+  const [lyric, setLyric] = useState({})
+
+  const history = useHistory()
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
@@ -53,6 +56,11 @@ function App() {
     setLoggedIn(false)
   }
 
+  function handleLyricClick(id) {
+    setLyric(user.lyrics.find(lyric => lyric.id === id))
+    console.log(lyric)
+  }
+
   return (
 
 
@@ -60,7 +68,7 @@ function App() {
 
       <div className="app">
 
-        
+
         <Switch>
 
 
@@ -88,6 +96,7 @@ function App() {
             <Dashboard
               user={user}
               onLogout={handleLogout}
+              handleLyricClick={handleLyricClick}
             />
           </Route>
 
