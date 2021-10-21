@@ -3,11 +3,11 @@ import { useHistory } from "react-router-dom";
 
 function Signup({ handleLogin }) {
 
-    // const production = "https://lyricbook-backend.herokuapp.com/"
-    // const development = "http://localhost:3000/"
-    // const url = (process.env.NODE_ENV ? production : development)
+    const production = "https://lyricbook-backend.herokuapp.com/"
+    const development = "http://localhost:3000/"
+    const url = (process.env.NODE_ENV === 'production' ? production : development)
 
-    const url = "http://localhost:3000/"
+    // const url = "http://localhost:3000/"
 
     const [newUsername, setUsername] = useState("")
     const [newPassword, setPassword] = useState("")

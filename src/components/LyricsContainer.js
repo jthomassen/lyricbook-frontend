@@ -24,12 +24,9 @@ function LyricsContainer({ user, handleShowLyric, deleteLyric }) {
             ))
                 : null
             }
-            <div className="add-lyric-box">
+            <button className="add-lyric-box" onClick={handleShowForm}>
                 <h1 className="add-lyric-box-title">New Song</h1>
-                <button onClick={handleShowForm} className="add-lyric-button">
-                    <ion-icon className="button-icons" name="add-outline"></ion-icon>
-                </button>
-            </div>
+            </button>
         </div>
 
 
