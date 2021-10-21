@@ -1,9 +1,14 @@
 import React from 'react'
 
-function Header() {
+function Header({ user }) {
 
     return (
-        <h1>Lyricbook</h1>
+        <div>
+            <h1>Lyricbook</h1>
+            <div className="prof-img-container">
+                <img src={user.profile_img} alt="profile picture" className="header-prof"/>
+            </div>
+        </div>
     )
 }
 

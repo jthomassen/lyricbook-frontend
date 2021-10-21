@@ -2,11 +2,13 @@ import React from 'react'
 import Header from './Header'
 import NavBar from './NavBar'
 
-function Profile() {
+function Profile({ user }) {
 
     return (
         <div>
-            <Header />
+            <Header 
+                user={user}
+            />
             <NavBar />
             <h1>Profile</h1>
         </div>

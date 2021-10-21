@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import Header from './Header'
 import NavBar from './NavBar'
 
-function Home() {
+function Home({ user }) {
 
     return (
         <div>
-            <Header />
+            <Header 
+                user={user}
+            />
             <NavBar />
             <h1>Welcome to Lyricbook</h1>
             <Link 

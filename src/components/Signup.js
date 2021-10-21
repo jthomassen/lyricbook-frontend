@@ -3,11 +3,12 @@ import { useHistory } from "react-router-dom";
 
 function Signup({ handleLogin }) {
 
-    const production = "https://lyricbook-backend.herokuapp.com/"
-    const development = "http://localhost:3000/"
-    const url = (process.env.NODE_ENV ? production : development)
+    // const production = "https://lyricbook-backend.herokuapp.com/"
+    // const development = "http://localhost:3000/"
+    // const url = (process.env.NODE_ENV ? production : development)
 
-    const [created, setCreated] = useState(false)
+    const url = "http://localhost:3000/"
+
     const [newUsername, setUsername] = useState("")
     const [newPassword, setPassword] = useState("")
     const [bio, setBio] = useState("")
@@ -17,7 +18,6 @@ function Signup({ handleLogin }) {
     const history = useHistory();
 
     function onSignup(username, password, bio, profile_img) {
-        // fetch(`${url}/api/v1/users`, {
         fetch(`${url}/users`, {
             method: "POST",
             headers: {
@@ -54,39 +54,6 @@ function Signup({ handleLogin }) {
         e.preventDefault()
         onSignup(newUsername, newPassword, bio, profile_img)
     }
-
-    // function handleSignupSubmit(e) {
-    //     e.preventDefault()
-    //     fetch("http://localhost:3000/users", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             Accept: "application/json",
-    //         },
-    //         body: JSON.stringify({ 
-    //             user: {
-    //                 username: `${username}`,
-    //                 password: `${password}`,
-    //                 bio: `${bio}`,
-    //                 profile_img: `${profile_img}`
-    //             }
-    //         }),
-    //     })
-    //     .then((response) => {
-    //         if (response.ok) {
-    //           response.json().then((data) => {
-    //             // setUser(data.user)
-    //             onLogin(data.user)
-    //             localStorage.setItem("jwt", data.jwt);
-    //             history.push("/home")
-    //           });
-    //         } else {
-    //           console.log("form incorrectly filled out")
-    //         }
-    //       })
-    //     }
-
-
 
     return (
         <div>

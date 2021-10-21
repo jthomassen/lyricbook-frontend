@@ -6,7 +6,7 @@ import Signup from './components/Signup.js';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
-import LyricView from './components/LyricView';
+import NewLyricForm from './components/NewLyricForm.js';
 import {
   BrowserRouter as Router,
   Switch, Route, useHistory
@@ -15,19 +15,23 @@ import {
 
 function App() {
 
-  const production = "https://lyricbook-backend.herokuapp.com/"
-  const development = "http://localhost:3000/"
-  const url = (process.env.NODE_ENV ? production : development)
+  // const production = "https://lyricbook-backend.herokuapp.com/"
+  // const development = "http://localhost:3000/"
+  // const url = (process.env.NODE_ENV ? production : development)
 
-  const [user, setUser] = useState({})
+  const url = "http://localhost:3000/"
+
   const [loggedIn, setLoggedIn] = useState(false)
-  const [lyric, setLyric] = useState({})
+  const [user, setUser] = useState({})
+  const [lyrics, setLyrics] = useState({})
+  const [lyricShow, setLyricShow] = useState([])
+  const [lyricClicked, setLyricClicked] = useState(false)
 
   const history = useHistory()
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
-    console.log("token: " + token)
+    // console.log("token: " + token)
     fetch(`${url}/profile`, {
       method: "GET",
       headers: {
@@ -45,6 +49,22 @@ function App() {
     });
   }, []);
 
+  function addNewLyric(lyric) {
+    const token = localStorage.getItem("jwt");
+    fetch(`${url}/lyrics`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({ ...lyric, user_id: user.id })
+    })
+      .then(res => res.json())
+      .then((data) => {
+        setLyrics({data, ...lyrics})
+      })
+  }
+
   function handleLogin(currentUser) {
     setUser(currentUser);
     setLoggedIn(true)
@@ -56,9 +76,13 @@ function App() {
     setLoggedIn(false)
   }
 
-  function handleLyricClick(id) {
-    setLyric(user.lyrics.find(lyric => lyric.id === id))
-    console.log(lyric)
+  function handleShowLyric(id) {
+    setLyricShow(user.lyrics.find(lyric => lyric.id === id))
+    setLyricClicked(true)
+  }
+
+  function handleShowAllLyrics() {
+    setLyricClicked(false)
   }
 
   return (
@@ -68,9 +92,7 @@ function App() {
 
       <div className="app">
 
-
         <Switch>
-
 
           <Route exact path="/">
             <SigninHome />
@@ -89,14 +111,20 @@ function App() {
           </Route>
 
           <Route exact path="/home">
-            <Home onLogout={handleLogout} />
+            <Home
+              onLogout={handleLogout}
+              user={user}
+            />
           </Route>
 
           <Route exact path="/dashboard">
             <Dashboard
               user={user}
               onLogout={handleLogout}
-              handleLyricClick={handleLyricClick}
+              handleShowLyric={handleShowLyric}
+              handleShowAllLyrics={handleShowAllLyrics}
+              lyricClicked={lyricClicked}
+              lyricShow={lyricShow}
             />
           </Route>
 
@@ -107,12 +135,11 @@ function App() {
             />
           </Route>
 
-          <Route exact path="/lyric-view">
-            <LyricView
-              user={user}
+          <Route exact path="/lyric-submission">
+            <NewLyricForm
+              addNewLyric={addNewLyric}
             />
           </Route>
-
 
         </Switch>
 

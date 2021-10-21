@@ -20,6 +20,19 @@ code {
   color: red;
 }
 
+/* .prof-img-container{
+  display: flex;
+  height: 100px;
+  width: 100px;
+} */
+
+img {
+  width:  100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .lyrics-container {
   display: flex;
   justify-content: left;
@@ -53,3 +66,5 @@ code {
 .lyric-box-artist {
   font-size: 12px;
 }
+
+
