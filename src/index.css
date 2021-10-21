@@ -27,8 +27,6 @@ html, body {
   color: white;
   font-family: 'Righteous', cursive;
   font-size: 50px;
-  letter-spacing: 20px;
-  margin-left: 28px;
   margin-top: 0;
 }
 
@@ -86,16 +84,16 @@ html, body {
   justify-content: center;
   align-items: center;
   justify-content: space-between;
-  padding-left: 39.8%;
+  padding-left: 44.8%;
   padding-right: 2%;
   height: 100px;
-  background-color: rgb(228, 104, 66);
+  background: rgb(195,67,34);
+  background: linear-gradient(29deg, rgba(195,67,34,1) 0%, rgb(253, 163, 45) 100%);
 }
 
 .logo {
   color: white;
   font-family: 'Righteous', cursive;
-  letter-spacing: 20px;
   cursor: pointer;
 }
 
@@ -104,6 +102,7 @@ html, body {
   height: 60px;
   object-fit: cover;
   border-radius: 50%;
+  border: 3px solid white;
   cursor: pointer;
 }
 
@@ -122,18 +121,21 @@ html, body {
 }
 
 .welcome-text {
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(228, 104, 66);
+  color: rgba(195,67,34,1);
   margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 200;
 }
 
 .home-start-button {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 30px;
+  background: rgb(195,67,34);
+  background: linear-gradient(29deg, rgba(195,67,34,1) 0%, rgb(253, 139, 45) 100%);
+  border: 1px solid white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
-  color: black;
+  color: white;
+  border-radius: 6px;
+  font-weight: bolder;
   height: 60px;
   width: 370px;
   cursor: pointer;
@@ -144,7 +146,8 @@ html, body {
 }
 
 .home-start-button:focus {
-  background-color: rgb(247, 206, 195);
+  background: rgb(195,67,34);
+  background: linear-gradient(29deg, rgb(156, 55, 30) 0%, rgb(253, 163, 45) 100%);
 }
 
 /* dashboard */

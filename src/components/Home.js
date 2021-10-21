@@ -19,9 +19,9 @@ function Home({ user }) {
             />
             <NavBar />
             <div className="home-details">
-                <h1 className="welcome-text">welcome to lyricbook!</h1>
+                <h3 className="welcome-text">welcome to lyricbook!</h3>
                 <button className="home-start-button" onClick={goToDashBoard}>
-                    Get Started
+                    Get Started!
                 </button>
             </div>
         </div>
