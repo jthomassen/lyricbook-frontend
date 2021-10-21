@@ -4,10 +4,10 @@ import NavBar from './NavBar'
 import LyricsContainer from './LyricsContainer'
 import LyricView from './LyricView'
 
-function Dashboard({ user, handleShowLyric, handleShowAllLyrics, lyricClicked, lyricShow }) {
+function Dashboard({ user, handleShowLyric, handleShowAllLyrics, deleteLyric, lyricClicked, lyricShow }) {
 
     return (
-        <div>
+        <div className="dashboard">
             { lyricClicked ? 
             <div>
                 <LyricView 
@@ -24,6 +24,7 @@ function Dashboard({ user, handleShowLyric, handleShowAllLyrics, lyricClicked, l
                 <LyricsContainer
                     user={user}
                     handleShowLyric={handleShowLyric}
+                    deleteLyric={deleteLyric}
                 />
             </div>
             }

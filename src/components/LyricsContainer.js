@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import LyricCard from './LyricCard';
 
-function LyricsContainer({ user, handleShowLyric }) {
+function LyricsContainer({ user, handleShowLyric, deleteLyric }) {
 
     const history = useHistory()
 
@@ -19,18 +19,17 @@ function LyricsContainer({ user, handleShowLyric }) {
                     lyric={lyric}
                     user={user}
                     handleShowLyric={handleShowLyric}
-
-                />              
+                    deleteLyric={deleteLyric}
+                />
             ))
                 : null
             }
-            <button
-                className="button-lyric-box"
-                onClick={handleShowForm}
-            >
-                <h1 className="lyric-box-title">Add New Song</h1>
-                <h2 className="lyric-box-artist">+</h2>
-            </button>
+            <div className="add-lyric-box">
+                <h1 className="add-lyric-box-title">New Song</h1>
+                <button onClick={handleShowForm} className="add-lyric-button">
+                    <ion-icon className="button-icons" name="add-outline"></ion-icon>
+                </button>
+            </div>
         </div>
 
 

@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import NewLyricForm from './components/NewLyricForm.js';
+import EditLyric from './components/EditLyric.js';
 import {
   BrowserRouter as Router,
   Switch, Route, useHistory
@@ -63,6 +64,10 @@ function App() {
       .then((data) => {
         setLyrics({data, ...lyrics})
       })
+  }
+
+  function deleteLyric() {
+    console.log("button clicked")
   }
 
   function handleLogin(currentUser) {
@@ -123,6 +128,7 @@ function App() {
               onLogout={handleLogout}
               handleShowLyric={handleShowLyric}
               handleShowAllLyrics={handleShowAllLyrics}
+              deleteLyric={deleteLyric}
               lyricClicked={lyricClicked}
               lyricShow={lyricShow}
             />
@@ -139,6 +145,10 @@ function App() {
             <NewLyricForm
               addNewLyric={addNewLyric}
             />
+          </Route>
+
+          <Route exact path="/lyric-editor">
+            <EditLyric />
           </Route>
 
         </Switch>

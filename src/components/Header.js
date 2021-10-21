@@ -1,12 +1,24 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 function Header({ user }) {
 
+    const history = useHistory()
+
+    function goToProfile() {
+        history.push("/profile")
+    }
+
     return (
-        <div>
-            <h1>Lyricbook</h1>
+        <div className="header">
+            <h1 className="logo">lyricbook</h1>
             <div className="prof-img-container">
-                <img src={user.profile_img} alt="profile picture" className="header-prof"/>
+                <img 
+                    src={user.profile_img} 
+                    alt="profile picture" 
+                    className="header-prof"
+                    onClick={goToProfile}
+                />
             </div>
         </div>
     )
