@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/lyricbook-frontend/static/css/main.26878bab.chunk.css",
+    "main.css": "/lyricbook-frontend/static/css/main.4f71a7c6.chunk.css",
     "main.js": "/lyricbook-frontend/static/js/main.e61758af.chunk.js",
     "main.js.map": "/lyricbook-frontend/static/js/main.e61758af.chunk.js.map",
     "runtime-main.js": "/lyricbook-frontend/static/js/runtime-main.e5268e44.js",
@@ -8,13 +8,13 @@
     "static/js/2.70632155.chunk.js": "/lyricbook-frontend/static/js/2.70632155.chunk.js",
     "static/js/2.70632155.chunk.js.map": "/lyricbook-frontend/static/js/2.70632155.chunk.js.map",
     "index.html": "/lyricbook-frontend/index.html",
-    "static/css/main.26878bab.chunk.css.map": "/lyricbook-frontend/static/css/main.26878bab.chunk.css.map",
+    "static/css/main.4f71a7c6.chunk.css.map": "/lyricbook-frontend/static/css/main.4f71a7c6.chunk.css.map",
     "static/js/2.70632155.chunk.js.LICENSE.txt": "/lyricbook-frontend/static/js/2.70632155.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e5268e44.js",
     "static/js/2.70632155.chunk.js",
-    "static/css/main.26878bab.chunk.css",
+    "static/css/main.4f71a7c6.chunk.css",
     "static/js/main.e61758af.chunk.js"
   ]
 }
