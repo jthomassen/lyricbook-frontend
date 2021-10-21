@@ -59,6 +59,12 @@ html, body {
   border-radius: 6px;
   font-weight: bolder;
   margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.signin-home-buttons:focus {
+  background: rgb(195,67,34);
+  background: linear-gradient(29deg, rgb(156, 55, 30) 0%, rgb(253, 163, 45) 100%);
 }
 
 /* signup */
