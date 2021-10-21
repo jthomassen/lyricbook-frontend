@@ -164,14 +164,12 @@ This will allow a different user to browse search results of all other users
   {
     id: 1,
     username: "thebeatles",
-    password_digest: "abcd1234",
     bio: " ... Four lads from Liverpool started in ... ",
     profile_img: "beatles.png"
   },
   {
     id: 2,
     username: "buddyholly",
-    password_digest: "efgh5678",
     bio: " ... Texas rock and roll star ... ",
     profile_img: "buddy.png"
   }
@@ -185,7 +183,6 @@ This will allow a user to select another user
 {
     id: 1,
     username: "thebeatles",
-    password_digest: "abcd1234",
     bio: " ... Four lads from Liverpool started in ... ",
     profile_img: "beatles.png"
   }
@@ -198,7 +195,6 @@ This will allow a user to view another user's collection of lyrics
 {
     id: 1,
     username: "thebeatles",
-    password_digest: "abcd1234",
     bio: " ... Four lads from Liverpool started in ... ",
     profile_img: "beatles.png"
     lyrics: [
