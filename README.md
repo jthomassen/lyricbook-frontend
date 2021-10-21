@@ -4,20 +4,21 @@ A lyric-writing application for artists with many monikers! Lyricbook allows use
 
 ## User Stories
 
-* As a user, I want to be able to sign up for an account, 
-* As a user, I want to be able to login
-* As a user, I want to be able to logout
-* As a user, I want to create lyrics
-* As a user, I want to edit lyrics 
-* As a user, I want to delete lyrics 
-* As a user, I want to view a collection of all of my lyrics
-* As a user, I want to delete my account
+As a user, I want to:
 
-* As a user, I want to customize my artist name
-* As a user, I want to upload a profile picture 
-* As a user, I want to create a profile bio 
-* As a user, I want to view other user's profiles 
-* As a user, I want to view songs from other user's profiles
+* Sign up for an account, 
+* Login
+* Logout
+* Create lyrics
+* Edit my lyrics 
+* Delete lyrics 
+* View collection of all of my lyrics
+
+* Customize my artist name
+* Upload a profile picture 
+* Create a profile bio 
+* View other user's profiles 
+* View songs from other user's profiles
 
 ## Models and Relationships
 
