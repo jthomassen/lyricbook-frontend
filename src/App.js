@@ -10,7 +10,7 @@ import NewLyricForm from './components/NewLyricForm.js';
 import EditLyric from './components/EditLyric.js';
 import {
   BrowserRouter as Router,
-  Switch, Route, useHistory
+  Switch, Route, useHistory, withRouter
 
 } from 'react-router-dom'
 
@@ -24,9 +24,11 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
-  const [lyrics, setLyrics] = useState({})
+  const [lyrics, setLyrics] = useState([])
   const [lyricShow, setLyricShow] = useState([])
   const [lyricClicked, setLyricClicked] = useState(false)
+
+  const [counter, setCounter] = useState(0)
 
   const history = useHistory()
 
@@ -48,7 +50,20 @@ function App() {
         console.log("please log in")
       }
     });
-  }, []);
+  }, [counter]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    fetch(`${url}/lyrics`, {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+    })
+    .then(response => response.json())
+    .then((data) => setLyrics(data))
+  }, [])
 
   function addNewLyric(lyric) {
     const token = localStorage.getItem("jwt");
@@ -62,12 +77,24 @@ function App() {
     })
       .then(res => res.json())
       .then((data) => {
-        setLyrics({data, ...lyrics})
+        setLyrics([data, ...lyrics])
       })
+      .then(() => setCounter(counter + 1))
   }
 
-  function deleteLyric() {
-    console.log("button clicked")
+  function deleteLyric(id) {
+    const token = localStorage.getItem("jwt");
+    fetch(`${url}/lyrics/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Accepts: 'application/json',
+        'Content-type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(() => setLyrics(lyrics.filter((lyric) => lyric.id !== id)))
+    .then(() => setCounter(counter + 1))
+
   }
 
   function handleLogin(currentUser) {
@@ -79,6 +106,7 @@ function App() {
     localStorage.clear()
     setUser(null);
     setLoggedIn(false)
+    history.push("/login")
   }
 
   function handleShowLyric(id) {
@@ -92,10 +120,11 @@ function App() {
 
   return (
 
+    <div className="app">
 
-    <Router basename={process.env.PUBLIC_URL}>
 
-      <div className="app">
+      {/* <Router basename={process.env.PUBLIC_URL}> */}
+
 
         <Switch>
 
@@ -153,8 +182,9 @@ function App() {
 
         </Switch>
 
-      </div>
-    </Router>
+      {/* </Router> */}
+
+    </div>
 
   );
 }

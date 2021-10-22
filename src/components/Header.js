@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-function Header({ user }) {
+function Header({ user, onLogout }) {
 
     const history = useHistory()
 
@@ -15,7 +15,6 @@ function Header({ user }) {
 
     return (
         <div className="header">
-            <h1 className="logo" onClick={goToHome}>lyricbook</h1>
             <div className="prof-img-container">
                 <img 
                     src={user.profile_img} 
@@ -24,6 +23,11 @@ function Header({ user }) {
                     onClick={goToProfile}
                 />
             </div>
+            <h1 className="logo" onClick={goToHome}>lyricbook</h1>
+            <button onClick={onLogout} className="logout-button">
+                <div className="logout-text">logout</div>
+                <div className="logout-icon"><ion-icon  name="log-out-outline"></ion-icon></div>
+            </button>
         </div>
     )
 }

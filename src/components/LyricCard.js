@@ -20,7 +20,7 @@ function Lyric({ lyric, handleShowLyric, deleteLyric }) {
                             <ion-icon name="create-outline"></ion-icon>
                         </span>
                     </button>
-                    <button onClick={deleteLyric} className="lyric-buttons">
+                    <button onClick={() => deleteLyric(lyric.id)} className="lyric-buttons">
                         <span className="button-icons">
                             <ion-icon name="trash-outline"></ion-icon>
                         </span>

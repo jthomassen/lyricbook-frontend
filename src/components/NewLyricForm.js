@@ -14,7 +14,6 @@ function NewLyricForm({ addNewLyric }) {
 
     function handleBackToDash() {
         history.push("/dashboard")
-        window.location.reload()
     }
 
     function handleSubmit(e) {
@@ -31,61 +30,47 @@ function NewLyricForm({ addNewLyric }) {
 
         addNewLyric(newLyric)
         setAddedSong(true)
+
+        history.push("/dashboard")
     }
 
-
-
     return (
-        <div>
-            <button onClick={handleBackToDash}>Back to Dashboard</button>
-            <form onSubmit={handleSubmit}>
-                <input
-                    className="lyric-inputs"
-                    type="text"
-                    placeholder=" Title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-                <input
-                    className="lyric-inputs"
-                    type="text"
-                    placeholder=" Artist"
-                    value={artist_name}
-                    onChange={(e) => setArtistName(e.target.value)}
-                />
-                <input
-                    className="lyric-inputs"
-                    type="text"
-                    placeholder=" Lyrics"
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                />
-                <input
-                    className="lyric-inputs"
-                    type="text"
-                    placeholder=" Copyright Name"
-                    value={copyright_name}
-                    onChange={(e) => setCopyrightName(e.target.value)}
-                />
-                {/* <input 
-                    className="lyric-inputs"
-                    type="number"
-                    placeholder=" Copyright Year"
-                    value={copyright_year}
-                    onChange={(e) => setCopyrightYear(e.target.value)}
-                /> */}
+        <div className="new-lyric-page">
+            <button className="back-button" onClick={handleBackToDash}><ion-icon name="arrow-back-circle-outline"></ion-icon></button>
+            <div className="lyric-form-container">
+                <form className="new-lyric-form" onSubmit={handleSubmit}>
+                    <input
+                        className="title-input"
+                        type="textarea"
+                        placeholder="Title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                    <input
+                        className="artist-input"
+                        type="textarea"
+                        placeholder="Artist"
+                        value={artist_name}
+                        onChange={(e) => setArtistName(e.target.value)}
+                    />
+                    <input
+                        className="content-input"
+                        type="textarea"
+                        placeholder="Lyrics"
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                    />
+                    <input
+                        className="copyright-input"
+                        type="textarea"
+                        placeholder="© Copyright Name"
+                        value={copyright_name}
+                        onChange={(e) => setCopyrightName(e.target.value)}
+                    />
+                    <button className="publish-button" type="submit">Publish</button>
 
-                <button type="submit">Publish</button>
-
-            </form>
-            {addedSong ?
-                <div>
-                    <h3>Song Published!</h3>
-                    <button onClick={handleBackToDash}>View Songs</button>
-                </div>
-                :
-                null
-            }
+                </form>
+            </div>
         </div>
     )
 }

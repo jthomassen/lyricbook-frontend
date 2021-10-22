@@ -43,7 +43,7 @@ function Signup({ handleLogin }) {
                 } else {
                     console.log("form incorrectly filled out")
                     response.json().then((data) => {
-                    setError(data.error)
+                        setError(data.error)
                     })
                 }
             })
@@ -56,47 +56,46 @@ function Signup({ handleLogin }) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmitSignup}>
-                Username:
-                <input
-                    className="login-inputs"
-                    type="text"
-                    id="username"
-                    placeholder=" Username"
-                    value={newUsername}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                Password:
-                <input
-                    className="login-inputs"
-                    type="password"
-                    id="password"
-                    placeholder=" Password"
-                    value={newPassword}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                Bio:
-                <input
-                    className="login-inputs"
-                    type="text"
-                    id="password"
-                    placeholder=" Tell us about yourself"
-                    value={bio}
-                    onChange={(e) => setBio(e.target.value)}
-                />
-                Profile Picture:
-                <input
-                    className="login-inputs"
-                    type="text"
-                    id="password"
-                    placeholder=" Insert profile picture"
-                    value={profile_img}
-                    onChange={(e) => setProfileImg(e.target.value)}
-                />
-                <button type="submit">Signup</button>
-            </form>
-            <h4 className="signup-error">{error}</h4>
+        <div className="signup-page">
+            <div className="signup-form-container">
+                <form onSubmit={handleSubmitSignup} className="signup-form">
+                    <h2 className="signup-text">Signup</h2>
+                    <input
+                        className="signup-inputs"
+                        type="text"
+                        id="username"
+                        placeholder=" Username"
+                        value={newUsername}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <input
+                        className="signup-inputs"
+                        type="password"
+                        id="password"
+                        placeholder=" Password"
+                        value={newPassword}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <input
+                        className="signup-input-bio"
+                        type="text"
+                        id="password"
+                        placeholder=" Tell us about yourself"
+                        value={bio}
+                        onChange={(e) => setBio(e.target.value)}
+                    />
+                    <input
+                        className="signup-inputs"
+                        type="text"
+                        id="password"
+                        placeholder=" Insert profile picture"
+                        value={profile_img}
+                        onChange={(e) => setProfileImg(e.target.value)}
+                    />
+                    <button type="submit" className="signup-button">Signup</button>
+                </form>
+                <h4 className="signup-error">{error}</h4>
+            </div>
 
         </div>
     )

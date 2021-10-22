@@ -4,7 +4,7 @@ import NavBar from './NavBar'
 import LyricsContainer from './LyricsContainer'
 import LyricView from './LyricView'
 
-function Dashboard({ user, handleShowLyric, handleShowAllLyrics, deleteLyric, lyricClicked, lyricShow }) {
+function Dashboard({ user, handleShowLyric, handleShowAllLyrics, deleteLyric, lyricClicked, lyricShow, onLogout }) {
 
     return (
         <div className="dashboard">
@@ -19,6 +19,7 @@ function Dashboard({ user, handleShowLyric, handleShowAllLyrics, deleteLyric, ly
             <div>
                 <Header 
                     user={user}
+                    onLogout={onLogout}
                 />
                 <NavBar />
                 <LyricsContainer

@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom'
 function NavBar({ onLogout }) {
 
     return (
-        <div>
+        <div className="nav-bar">
             <NavLink
                 activeClassName="active-nav-link"
                 className="nav-link"
-                style={{ textDecoration: 'none' }}
+                // style={{ textDecoration: 'none' }}
                 exact to="/home">
                 Home
             </NavLink>
@@ -16,22 +16,19 @@ function NavBar({ onLogout }) {
             <NavLink
                 activeClassName="active-nav-link"
                 className="nav-link"
-                style={{ textDecoration: 'none' }}
+                // style={{ textDecoration: 'none' }}
                 exact to="/dashboard">
-                Dashboard
+                Journal
             </NavLink>
 
             <NavLink
                 activeClassName="active-nav-link"
                 className="nav-link"
-                style={{ textDecoration: 'none' }}
+                // style={{ textDecoration: 'none' }}
                 exact to="/profile">
                 Profile
             </NavLink>
-
-            <NavLink exact to='/login'>
-                <button className="logout-button" onClick={onLogout}>Logout</button>
-            </NavLink>
+        
         </div>
     )
 }

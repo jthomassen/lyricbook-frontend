@@ -2,12 +2,13 @@ import React from 'react'
 import Header from './Header'
 import NavBar from './NavBar'
 
-function Profile({ user }) {
+function Profile({ user, onLogout }) {
 
     return (
         <div>
             <Header
                 user={user}
+                onLogout={onLogout}
             />
             <NavBar />
             <div className="prof-items-container">

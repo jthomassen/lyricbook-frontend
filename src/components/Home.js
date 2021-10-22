@@ -4,7 +4,7 @@ import Header from './Header'
 import NavBar from './NavBar'
 
 
-function Home({ user }) {
+function Home({ user, onLogout }) {
 
     const history = useHistory()
 
@@ -16,6 +16,7 @@ function Home({ user }) {
         <div className="home">
             <Header
                 user={user}
+                onLogout={onLogout}
             />
             <NavBar />
             <div className="home-details">

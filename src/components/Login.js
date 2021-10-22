@@ -53,9 +53,9 @@ function Login({ handleLogin }) {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmitLogin}>
-                Username:
+        <div className="login-page">
+            <form className="login-form" onSubmit={handleSubmitLogin}>
+                <h2 className="login-text">Login</h2>
                 <input
                     className="login-inputs"
                     type="text"
@@ -64,7 +64,6 @@ function Login({ handleLogin }) {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
-                Password:
                 <input
                     className="login-inputs"
                     type="password"
@@ -73,7 +72,7 @@ function Login({ handleLogin }) {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Login</button>
+                <button className="login-button" type="submit">Login</button>
 
             </form>
             <h4 className="login-error">{error}</h4>
