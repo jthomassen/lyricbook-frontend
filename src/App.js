@@ -82,6 +82,10 @@ function App() {
       .then(() => setCounter(counter + 1))
   }
 
+  function editLyric() {
+    console.log("Clicked!")
+  }
+
   function deleteLyric(id) {
     const token = localStorage.getItem("jwt");
     fetch(`${url}/lyrics/${id}`, {
@@ -118,13 +122,11 @@ function App() {
     setLyricClicked(false)
   }
 
+  console.log(user)
+
   return (
 
     <div className="app">
-
-
-      {/* <Router basename={process.env.PUBLIC_URL}> */}
-
 
         <Switch>
 
@@ -157,8 +159,8 @@ function App() {
               onLogout={handleLogout}
               handleShowLyric={handleShowLyric}
               handleShowAllLyrics={handleShowAllLyrics}
-              deleteLyric={deleteLyric}
               lyricClicked={lyricClicked}
+              deleteLyric={deleteLyric}
               lyricShow={lyricShow}
             />
           </Route>
@@ -181,8 +183,6 @@ function App() {
           </Route>
 
         </Switch>
-
-      {/* </Router> */}
 
     </div>
 

@@ -12,7 +12,7 @@ function Profile({ user, onLogout }) {
             />
             <NavBar />
             <div className="prof-items-container">
-                <img src={user.profile_img} alt="profile picture" className="profile-img" />
+                <img src={user.profile_img ? user.profile_img : "default-profile-picture.jpeg"} alt="profile picture" className="profile-img" />
                 <div className="prof-details-container">
                     <h2 className="profile-name">{user.username}</h2>
                     <p className="profile-bio">{user.bio}</p>

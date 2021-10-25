@@ -17,7 +17,7 @@ function Header({ user, onLogout }) {
         <div className="header">
             <div className="prof-img-container">
                 <img 
-                    src={user.profile_img} 
+                    src={user.profile_img ? user.profile_img : "default-profile-picture.jpeg"} 
                     alt="profile picture" 
                     className="header-prof"
                     onClick={goToProfile}
