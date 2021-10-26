@@ -1,20 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom'
 
-function NewLyricForm({ addNewLyric }) {
+function NewLyricForm({ addNewLyric, toDash }) {
 
-    const history = useHistory()
-
-    const [addedSong, setAddedSong] = useState(false)
     const [title, setTitle] = useState("")
     const [artist_name, setArtistName] = useState("")
     const [content, setContent] = useState("")
     const [copyright_name, setCopyrightName] = useState("")
-    const [copyright_year, setCopyrightYear] = useState(null)
-
-    function handleBackToDash() {
-        history.push("/dashboard")
-    }
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -25,49 +16,53 @@ function NewLyricForm({ addNewLyric }) {
             artist_name,
             content,
             copyright_name,
-            copyright_year
         }
 
         addNewLyric(newLyric)
-        setAddedSong(true)
 
-        history.push("/dashboard")
+        toDash()
     }
 
     return (
         <div className="new-lyric-page">
-            <button className="back-button" onClick={handleBackToDash}><ion-icon name="arrow-back-circle-outline"></ion-icon></button>
+            <button className="back-button" onClick={toDash}><ion-icon name="arrow-back-circle-outline"></ion-icon></button>
             <div className="lyric-form-container">
                 <form className="new-lyric-form" onSubmit={handleSubmit}>
                     <input
                         className="title-input"
-                        type="textarea"
+                        type="text"
                         placeholder="Title"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />
                     <input
                         className="artist-input"
-                        type="textarea"
+                        type="text"
                         placeholder="Artist"
                         value={artist_name}
                         onChange={(e) => setArtistName(e.target.value)}
                     />
-                    <input
+                    <textarea
                         className="content-input"
-                        type="textarea"
+                        type="text"
                         placeholder="Lyrics"
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                     />
+                    <div className="resize-text-container">
+                        <div className="text-and-icon">
+                            <h5 className="resize-text">resize</h5>
+                            <ion-icon name="caret-up-outline"></ion-icon>
+                        </div>
+                    </div>
                     <input
                         className="copyright-input"
-                        type="textarea"
+                        type="text"
                         placeholder="© Copyright Name"
                         value={copyright_name}
                         onChange={(e) => setCopyrightName(e.target.value)}
                     />
-                    <button className="publish-button" type="submit">Publish</button>
+                    <button className="submit-button" type="submit">Publish</button>
 
                 </form>
             </div>

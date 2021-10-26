@@ -1,14 +1,7 @@
 import React from 'react';
-import { useHistory } from 'react-router';
 import LyricCard from './LyricCard';
 
-function LyricsContainer({ user, handleShowLyric, deleteLyric }) {
-
-    const history = useHistory()
-
-    function handleShowForm() {
-        history.push("/lyric-submission")
-    }
+function LyricsContainer({ user, handleShowLyric, deleteLyric, handleShowEditor, toLyricSubmission }) {
 
     return (
 
@@ -20,11 +13,12 @@ function LyricsContainer({ user, handleShowLyric, deleteLyric }) {
                     user={user}
                     handleShowLyric={handleShowLyric}
                     deleteLyric={deleteLyric}
+                    handleShowEditor={handleShowEditor}
                 />
             ))
                 : null
             }
-            <button className="add-lyric-box" onClick={handleShowForm}>
+            <button className="add-lyric-box" onClick={toLyricSubmission}>
                 <h1 className="add-lyric-box-title">New Song</h1>
             </button>
         </div>

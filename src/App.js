@@ -9,9 +9,7 @@ import Profile from './components/Profile';
 import NewLyricForm from './components/NewLyricForm.js';
 import EditLyric from './components/EditLyric.js';
 import {
-  BrowserRouter as Router,
-  Switch, Route, useHistory, withRouter
-
+  Switch, Route, useHistory
 } from 'react-router-dom'
 
 function App() {
@@ -20,21 +18,24 @@ function App() {
   const development = "http://localhost:3000/"
   const url = (process.env.NODE_ENV === 'production' ? production : development)
 
-  // const url = "http://localhost:3000/"
+  // const production_front = "https://jthomassen.github.io/lyricbook-frontend/"
+  // const development_front = ""
+  // const url_front = (process.env.NODE_ENV === 'production' ? production_front : development_front)
+
+  // http://localhost:4000/lyricbook-frontend/
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
   const [lyrics, setLyrics] = useState([])
   const [lyricShow, setLyricShow] = useState([])
   const [lyricClicked, setLyricClicked] = useState(false)
-
+  const [lyricEditor, setLyricEditor] = useState([])
   const [counter, setCounter] = useState(0)
 
   const history = useHistory()
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
-    // console.log("token: " + token)
     fetch(`${url}/profile`, {
       method: "GET",
       headers: {
@@ -45,25 +46,14 @@ function App() {
         response.json().then((data) => {
           setLoggedIn(true)
           setUser(data.user)
+          setLyrics(data.user.lyrics)
+          // setLyricEditor(data.user.lyrics)
         });
       } else {
         console.log("please log in")
       }
     });
   }, [counter]);
-
-  useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    fetch(`${url}/lyrics`, {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
-      },
-    })
-    .then(response => response.json())
-    .then((data) => setLyrics(data))
-  }, [])
 
   function addNewLyric(lyric) {
     const token = localStorage.getItem("jwt");
@@ -82,8 +72,24 @@ function App() {
       .then(() => setCounter(counter + 1))
   }
 
-  function editLyric() {
+  function editLyric(id) {
     console.log("Clicked!")
+    const token = localStorage.getItem("jwt");
+    fetch(`${url}/lyrics/${id}`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify(lyricEditor)
+    })
+      .then(res => res.json())
+      .then((updatedLyric) => {
+        let oldLyrics = lyrics.filter(lyric => lyric.id !== id)
+        let newLyrics = [updatedLyric, ...oldLyrics]
+        setLyrics(newLyrics)
+      })
+      .then(() => setCounter(counter + 1))
   }
 
   function deleteLyric(id) {
@@ -96,9 +102,28 @@ function App() {
         Authorization: `Bearer ${token}`
       }
     })
-    .then(() => setLyrics(lyrics.filter((lyric) => lyric.id !== id)))
-    .then(() => setCounter(counter + 1))
+      .then(() => setLyrics(lyrics.filter((lyric) => lyric.id !== id)))
+      .then(() => setCounter(counter + 1))
+  }
 
+  function toHome() {
+    history.push("/home")
+}
+
+  function toDash() {
+    history.push("/dashboard")
+  }
+
+  function toProfile() {
+    history.push("/profile")
+  }
+
+  function toLyricSubmission() {
+    history.push("/lyric-submission")
+  }
+
+  function toLyricEditor() {
+    history.push("/lyric-editor")
   }
 
   function handleLogin(currentUser) {
@@ -122,68 +147,113 @@ function App() {
     setLyricClicked(false)
   }
 
-  console.log(user)
+  function handleTitleChange(e) {
+    setLyricEditor({ ...lyricEditor, title: e.target.value })
+  }
+
+  function handleArtistChange(e) {
+    setLyricEditor({ ...lyricEditor, artist_name: e.target.value })
+  }
+
+  function handleContentChange(e) {
+    setLyricEditor({ ...lyricEditor, content: e.target.value })
+  }
+
+  function handleCopyrightChange(e) {
+    setLyricEditor({ ...lyricEditor, copyright_name: e.target.value })
+  }
+
+  function handleShowEditor(id) {
+    // history.push("/lyric-editor")
+    toLyricEditor()
+    setLyricEditor(lyrics.find(lyric => lyric.id === id))
+  }
 
   return (
 
     <div className="app">
+      <Switch>
+        <Route exact path="/">
+          <SigninHome />
+        </Route>
 
-        <Switch>
+        <Route exact path="/login">
+          <Login
+            handleLogin={handleLogin}
+          />
+        </Route>
 
-          <Route exact path="/">
-            <SigninHome />
-          </Route>
+        <Route exact path="/signup">
+          <Signup
+            handleLogin={handleLogin}
+          />
+        </Route>
 
-          <Route exact path="/login">
-            <Login
-              handleLogin={handleLogin}
-            />
-          </Route>
+        {loggedIn ?
+          <div>
+            <Route exact path="/home">
+              <Home
+                onLogout={handleLogout}
+                user={user}
+                toDash={toDash}
+                toHome={toHome}
+                toProfile={toProfile}
+              />
+            </Route>
 
-          <Route exact path="/signup">
-            <Signup
-              handleLogin={handleLogin}
-            />
-          </Route>
+            <Route exact path="/dashboard">
+              <Dashboard
+                user={user}
+                onLogout={handleLogout}
+                handleShowLyric={handleShowLyric}
+                handleShowAllLyrics={handleShowAllLyrics}
+                lyricClicked={lyricClicked}
+                deleteLyric={deleteLyric}
+                lyricShow={lyricShow}
+                handleShowEditor={handleShowEditor}
+                toLyricSubmission={toLyricSubmission}
+                toHome={toHome}
+                toProfile={toProfile}
+              />
+            </Route>
 
-          <Route exact path="/home">
-            <Home
-              onLogout={handleLogout}
-              user={user}
-            />
-          </Route>
+            <Route exact path="/profile">
+              <Profile
+                user={user}
+                onLogout={handleLogout}
+                toHome={toHome}
+                toProfile={toProfile}
+              />
+            </Route>
 
-          <Route exact path="/dashboard">
-            <Dashboard
-              user={user}
-              onLogout={handleLogout}
-              handleShowLyric={handleShowLyric}
-              handleShowAllLyrics={handleShowAllLyrics}
-              lyricClicked={lyricClicked}
-              deleteLyric={deleteLyric}
-              lyricShow={lyricShow}
-            />
-          </Route>
+            <Route exact path="/lyric-submission">
+              <NewLyricForm
+                addNewLyric={addNewLyric}
+                toDash={toDash}
+              />
+            </Route>
 
-          <Route exact path="/profile">
-            <Profile
-              user={user}
-              onLogout={handleLogout}
-            />
-          </Route>
-
-          <Route exact path="/lyric-submission">
-            <NewLyricForm
-              addNewLyric={addNewLyric}
-            />
-          </Route>
-
-          <Route exact path="/lyric-editor">
-            <EditLyric />
-          </Route>
-
-        </Switch>
-
+            <Route exact path="/lyric-editor">
+              <EditLyric
+                user={user}
+                editLyric={editLyric}
+                handleTitleChange={handleTitleChange}
+                handleArtistChange={handleArtistChange}
+                handleContentChange={handleContentChange}
+                handleCopyrightChange={handleCopyrightChange}
+                id={lyricEditor.id}
+                title={lyricEditor.title}
+                artist_name={lyricEditor.artist_name}
+                content={lyricEditor.content}
+                copyright_name={lyricEditor.copyright_name}
+                toDash={toDash}
+              />
+            </Route>
+          </div>
+          :
+          <SigninHome />
+        }
+      </Switch>
     </div>
 
   );

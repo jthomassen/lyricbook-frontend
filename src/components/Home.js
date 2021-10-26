@@ -1,27 +1,22 @@
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom'
 import Header from './Header'
 import NavBar from './NavBar'
 
 
-function Home({ user, onLogout }) {
-
-    const history = useHistory()
-
-    function goToDashBoard() {
-        history.push("/dashboard")
-    }
+function Home({ user, onLogout, toDash, toHome, toProfile }) {
 
     return (
         <div className="home">
             <Header
                 user={user}
                 onLogout={onLogout}
+                toHome={toHome}
+                toProfile={toProfile}
             />
             <NavBar />
             <div className="home-details">
                 <h3 className="welcome-text">welcome to lyricbook!</h3>
-                <button className="home-start-button" onClick={goToDashBoard}>
+                <button className="home-start-button" onClick={toDash}>
                     Get Started!
                 </button>
             </div>

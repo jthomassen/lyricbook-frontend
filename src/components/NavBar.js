@@ -1,14 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-function NavBar({ onLogout }) {
+function NavBar() {
 
     return (
         <div className="nav-bar">
             <NavLink
                 activeClassName="active-nav-link"
                 className="nav-link"
-                // style={{ textDecoration: 'none' }}
                 exact to="/home">
                 Home
             </NavLink>
@@ -16,7 +15,6 @@ function NavBar({ onLogout }) {
             <NavLink
                 activeClassName="active-nav-link"
                 className="nav-link"
-                // style={{ textDecoration: 'none' }}
                 exact to="/dashboard">
                 Journal
             </NavLink>
@@ -24,7 +22,6 @@ function NavBar({ onLogout }) {
             <NavLink
                 activeClassName="active-nav-link"
                 className="nav-link"
-                // style={{ textDecoration: 'none' }}
                 exact to="/profile">
                 Profile
             </NavLink>

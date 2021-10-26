@@ -321,7 +321,7 @@ input:focus {
   color: white;
   border-radius: 6px;
   font-weight: bolder;
-  height: 60px;
+  height: 50px;
   width: 370px;
   cursor: pointer;
 }
@@ -417,13 +417,14 @@ input:focus {
   width: 292px;
   margin: 20px;
   background-color: white;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
   cursor: pointer;
   border-radius: 4%;
 }
 
 .add-lyric-box:hover {
   background-color: rgb(252, 236, 216);
+  color: rgb(228, 104, 66);
 }
 
 .add-lyric-box:focus {
@@ -479,6 +480,7 @@ input:focus {
 .lyric-content {
   font-size: 20px;
   font-weight: 400;
+  white-space: pre-line;
   color: rgb(59, 59, 59);
 }
 
@@ -489,6 +491,7 @@ input:focus {
 
 .lyric-copyright {
   margin-right: 5px;
+  margin-bottom: 100px;
   font-weight: 400;
 }
 
@@ -530,7 +533,6 @@ input:focus {
   font-size: 65px;
   margin-bottom: 30px;
   border: 1px solid white;
-  /* border-bottom: 2px solid lightgrey; */
 }
 
 .artist-input {
@@ -538,15 +540,39 @@ input:focus {
   font-size: 35px;
   margin-bottom: 40px;
   border: 1px solid white;
-  /* border-bottom: 2px solid lightgrey; */
 }
 
 .content-input {
   width: 60%;
+  word-wrap: break-word;
   font-size: 20px;
-  margin-bottom: 40px;
+  font-family: Arial, Helvetica, sans-serif;
   border: 1px solid white;
-  /* border-bottom: 2px solid lightgrey; */
+}
+
+.resize-text-container {
+  width: 60.7%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  color: rgb(199, 224, 247);
+  padding-top: 6px;
+  padding-bottom: 20px;
+}
+
+.resize-text-container:hover {
+  color: rgb(0, 132, 255);
+}
+
+.text-and-icon {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+}
+
+.resize-text {
+  margin-bottom: 40px;
+  margin-top: 0;
 }
 
 .copyright-input {
@@ -556,9 +582,9 @@ input:focus {
   /* border-bottom: 2px solid lightgrey; */
 }
 
-.publish-button {
-  width: 200px;
-  height: 50px;
+.submit-button {
+  width: 180px;
+  height: 40px;
   border-radius: 5px;
   border: 1px solid white;
   background: rgb(195,67,34);
@@ -567,6 +593,29 @@ input:focus {
   font-weight: bolder;
   cursor: pointer;
   margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.submit-button:focus {
+  background: rgb(195,67,34);
+  background: linear-gradient(29deg, rgb(156, 55, 30) 0%, rgb(253, 163, 45) 100%);
+}
+
+/* edit lyric form */
+
+.edit-lyric-form-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.edit-lyric-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  width: 100%
 }
 
 /* profile */

@@ -1,13 +1,6 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 
-function Lyric({ lyric, handleShowLyric, deleteLyric }) {
-
-    const history = useHistory()
-
-    function handleShowEditor() {
-        history.push("/lyric-editor")
-    }
+function Lyric({ lyric, handleShowLyric, deleteLyric, handleShowEditor }) {
 
     return (
         <div>
@@ -15,7 +8,7 @@ function Lyric({ lyric, handleShowLyric, deleteLyric }) {
                 <h1 className="lyric-box-title" onClick={() => handleShowLyric(lyric.id)}>{lyric.title}</h1>
                 <h2 className="lyric-box-artist">{lyric.artist_name}</h2>
                 <div className="lyric-buttons-container">
-                    <button onClick={handleShowEditor} className="lyric-buttons">
+                    <button onClick={() => handleShowEditor(lyric.id)} className="lyric-buttons">
                         <span className="button-icons">
                             <ion-icon name="create-outline"></ion-icon>
                         </span>

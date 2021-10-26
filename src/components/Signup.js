@@ -7,8 +7,6 @@ function Signup({ handleLogin }) {
     const development = "http://localhost:3000/"
     const url = (process.env.NODE_ENV === 'production' ? production : development)
 
-    // const url = "http://localhost:3000/"
-
     const [newUsername, setUsername] = useState("")
     const [newPassword, setPassword] = useState("")
     const [bio, setBio] = useState("")

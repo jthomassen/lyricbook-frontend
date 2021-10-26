@@ -7,8 +7,6 @@ function Login({ handleLogin }) {
     const development = "http://localhost:3000/"
     const url = (process.env.NODE_ENV === 'production' ? production : development)
 
-    // const url = "http://localhost:3000/"
-
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -35,7 +33,6 @@ function Login({ handleLogin }) {
               handleLogin(data.user)
               localStorage.setItem("jwt", data.jwt);
               history.push("/home")
-            //   console.log(data.user)
             });
           } else {
             console.log("wrong username/password")
