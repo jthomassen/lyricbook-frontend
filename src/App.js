@@ -18,9 +18,9 @@ function App() {
   const development = "http://localhost:3000/"
   const url = (process.env.NODE_ENV === 'production' ? production : development)
 
-  // const production_front = "https://jthomassen.github.io/lyricbook-frontend/"
-  // const development_front = ""
-  // const url_front = (process.env.NODE_ENV === 'production' ? production_front : development_front)
+  const production_front = "/lyricbook-frontend"
+  const development_front = ""
+  const url_front = (process.env.NODE_ENV === 'production' ? production_front : development_front)
 
   // http://localhost:4000/lyricbook-frontend/
 
@@ -107,23 +107,23 @@ function App() {
   }
 
   function toHome() {
-    history.push("/home")
+    history.push(`${url_front}/home`)
 }
 
   function toDash() {
-    history.push("/dashboard")
+    history.push(`${url_front}/dashboard`)
   }
 
   function toProfile() {
-    history.push("/profile")
+    history.push(`${url_front}/profile`)
   }
 
   function toLyricSubmission() {
-    history.push("/lyric-submission")
+    history.push(`${url_front}/lyric-submission`)
   }
 
   function toLyricEditor() {
-    history.push("/lyric-editor")
+    history.push(`${url_front}/lyric-editor`)
   }
 
   function handleLogin(currentUser) {
