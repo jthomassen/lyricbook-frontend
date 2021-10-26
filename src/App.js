@@ -18,7 +18,7 @@ function App() {
   const development = "http://localhost:3000/"
   const url = (process.env.NODE_ENV === 'production' ? production : development)
 
-  const production_front = "/lyricbook-frontend"
+  const production_front = ""
   const development_front = ""
   const url_front = (process.env.NODE_ENV === 'production' ? production_front : development_front)
 
