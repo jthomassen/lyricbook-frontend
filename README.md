@@ -17,8 +17,6 @@ As a user, I want to:
 * Customize my artist name
 * Upload a profile picture 
 * Create a profile bio 
-* View other user's profiles 
-* View songs from other user's profiles
 
 ## Models and Relationships
 
