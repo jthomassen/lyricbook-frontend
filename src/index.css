@@ -624,6 +624,7 @@ input:focus {
   display: flex;
   justify-content: left;
   margin-left: 275px;
+  margin-right: 275px;
   margin-top: 45px;
 }
 
