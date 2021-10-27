@@ -137,7 +137,7 @@ This will allow a user to delete an existing lyric
 }
 ```
 
-### Users
+### STETCH GOALS
 
 ### DELETE /api/users/:id
 This will allow a user to delete their account
@@ -151,8 +151,6 @@ This will allow a user to delete their account
   profile_img: "beatles.png"
 }
 ```
-
-### STETCH GOALS
 
 ### GET /api/users
 This will allow a different user to browse search results of all other users
