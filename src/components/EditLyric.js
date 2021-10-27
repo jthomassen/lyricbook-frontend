@@ -9,8 +9,6 @@ function EditLyric({ id, title, artist_name, content, copyright_name, editLyric,
         toDash()
     }
 
-
-
     return (
         <div className="edit-page">
             <button className="back-button" onClick={toDash}><ion-icon name="arrow-back-circle-outline"></ion-icon></button>

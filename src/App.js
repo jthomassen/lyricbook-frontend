@@ -22,6 +22,8 @@ function App() {
   const development_front = ""
   const url_front = (process.env.NODE_ENV === 'production' ? production_front : development_front)
 
+  console.log(process.env.PUBLIC_URL)
+
   // http://localhost:4000/lyricbook-frontend/
 
   const [loggedIn, setLoggedIn] = useState(false)
