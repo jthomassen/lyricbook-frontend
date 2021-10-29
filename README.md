@@ -1,6 +1,6 @@
 # Lyricbook
 
-A lyric-writing application for artists with many monikers! Lyricbook allows users to draft and publish their lyrics on a digital platform. Songwriters are provided a notepad to compose and format their lyrics and a journal-view to review a collection of their songs. Artists can also browse collections of other artists' lyrics with the 'explore' feature in the homepage!
+A lyric-writing application for artists with many monikers! Lyricbook allows users to draft and publish their lyrics on a digital platform. Songwriters are provided a notepad to compose and format their lyrics and a journal-view to review a collection of their songs.
 
 ## User Stories
 

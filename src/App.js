@@ -191,7 +191,7 @@ function App() {
           />
         </Route>
 
-        {/* {loggedIn ? */}
+        {/* {user ? */}
           <div>
             <Route exact path="/home">
               <Home
@@ -254,7 +254,7 @@ function App() {
           </div>
           {/* // :
           // <SigninHome />
-          // } */}
+          // }  */}
       </Switch>
     </div>
 
