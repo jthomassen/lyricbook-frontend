@@ -2,7 +2,7 @@
 
 A lyric-writing application for artists with many monikers! Lyricbook allows users to draft and publish their lyrics on a digital platform. Songwriters are provided a notepad to compose and format their lyrics and a journal-view to review a collection of their songs.
 
-(jthomassen.github.io/lyricbook-frontend)
+[Link to Lyricbook](jthomassen.github.io/lyricbook-frontend)
 
 ## User Stories
 
