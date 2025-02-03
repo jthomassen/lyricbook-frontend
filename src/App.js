@@ -14,7 +14,7 @@ import {
 
 function App() {
 
-  const production = "https://lyricbook-backend.herokuapp.com/"
+  const production = "https://lyricbook-39ec1997b0c7.herokuapp.com/"
   const development = "http://localhost:3000/"
   const url = (process.env.NODE_ENV === 'production' ? production : development)
 
